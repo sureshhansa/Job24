@@ -1,0 +1,77 @@
+/* =====================================================================
+   Job Portal — custom styles (frontend)
+   ===================================================================== */
+:root{
+    --jp-primary:#2557a7;     /* Indeed-ish blue */
+    --jp-primary-dark:#1c4583;
+    --jp-bg:#f3f2f1;
+}
+
+body{ background:#fff; color:#2d2d2d; }
+
+.btn-primary{ --bs-btn-bg:var(--jp-primary); --bs-btn-border-color:var(--jp-primary);
+    --bs-btn-hover-bg:var(--jp-primary-dark); --bs-btn-hover-border-color:var(--jp-primary-dark);
+    --bs-btn-active-bg:var(--jp-primary-dark); }
+.text-primary{ color:var(--jp-primary)!important; }
+a{ color:var(--jp-primary); }
+
+/* ---- Hero ---- */
+.hero{
+    background:linear-gradient(135deg,#2557a7 0%,#1c4583 100%);
+}
+.search-box .form-control:focus{ box-shadow:none; }
+.search-box .input-group-text{ padding-right:0; }
+
+/* ---- Category cards ---- */
+.category-card{ transition:transform .15s ease, box-shadow .15s ease; }
+.category-card:hover{ transform:translateY(-3px); box-shadow:0 .5rem 1rem rgba(0,0,0,.1)!important; }
+.category-icon{ font-size:1.8rem; color:var(--jp-primary); }
+.category-icon-lg{ font-size:2.4rem; color:var(--jp-primary);
+    width:64px;height:64px;display:flex;align-items:center;justify-content:center;
+    background:#eaf1fb;border-radius:12px; }
+
+/* ---- Job cards ---- */
+.job-card{ transition:transform .15s ease, box-shadow .15s ease; }
+.job-card:hover{ transform:translateY(-2px); box-shadow:0 .5rem 1rem rgba(0,0,0,.1)!important; }
+.min-w-0{ min-width:0; }
+
+.company-logo{
+    width:52px;height:52px;border-radius:10px;overflow:hidden;
+    background:#eaf1fb;display:flex;align-items:center;justify-content:center;
+}
+.company-logo img{ width:100%;height:100%;object-fit:contain; }
+.company-logo-lg{ width:72px;height:72px;border-radius:14px; }
+.logo-fallback{ font-weight:700;color:var(--jp-primary);font-size:1.3rem; }
+.company-logo-lg .logo-fallback{ font-size:1.8rem; }
+
+/* ---- Filters ---- */
+.filter-list li a{ display:block;padding:.4rem .6rem;border-radius:6px;color:#444;text-decoration:none;font-size:.9rem; }
+.filter-list li a:hover{ background:#f3f6fb; }
+.filter-list li.active a{ background:var(--jp-primary);color:#fff; }
+
+/* ---- Job detail ---- */
+.job-content{ white-space:normal;line-height:1.7;color:#3a3a3a; }
+.apply-card{ top:1rem; }
+
+/* ---- CTA ---- */
+.cta-banner{ background:linear-gradient(135deg,#1c4583,#2557a7); }
+
+/* ---- Footer ---- */
+.footer-link{ color:#adb5bd;text-decoration:none; }
+.footer-link:hover{ color:#fff; }
+
+/* ---- Auth pages ---- */
+.auth-body{ background:var(--jp-bg); }
+
+/* ---- Candidate dashboard ---- */
+.avatar-circle{
+    width:64px;height:64px;border-radius:50%;background:var(--jp-primary);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;
+}
+.candidate-nav .nav-link{ color:#444;border-radius:8px;margin-bottom:.2rem; }
+.candidate-nav .nav-link:hover{ background:#f3f6fb; }
+.candidate-nav .nav-link.active{ background:var(--jp-primary);color:#fff; }
+.stat-card .stat-icon{ font-size:1.6rem; }
+
+/* ---- Misc ---- */
+.navbar-brand{ font-size:1.25rem; }

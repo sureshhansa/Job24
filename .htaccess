@@ -1,0 +1,45 @@
+# =====================================================================
+#  Job Portal - URL rewriting (SEO friendly)
+#  Routes every non-file request through index.php
+# =====================================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # If installed in a subfolder, RewriteBase is auto-handled by index.php,
+    # but you may set it explicitly, e.g.:  RewriteBase /job-portal/
+
+    # Do not rewrite real files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Send everything else to the front controller
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# ---------------------------------------------------------------------
+# Security hardening
+# ---------------------------------------------------------------------
+# Block access to sensitive files
+<FilesMatch "(^\.|composer\.(json|lock)|\.sql$|\.md$)">
+    Require all denied
+</FilesMatch>
+
+# Disable directory listing
+Options -Indexes
+
+# Default charset
+AddDefaultCharset UTF-8
+
+# ---------------------------------------------------------------------
+# Basic caching for static assets
+# ---------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+</IfModule>

@@ -1,0 +1,16 @@
+# Prevent execution of any scripts in the uploads directory.
+# Files here should only ever be served as static downloads.
+
+php_flag engine off
+
+<IfModule mod_rewrite.c>
+    RewriteEngine Off
+</IfModule>
+
+# Deny known executable/script extensions
+<FilesMatch "\.(php|php3|php4|php5|php7|phtml|pl|py|cgi|sh|asp|aspx|js|htaccess)$">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes -ExecCGI
+AddType text/plain .php .phtml .pl .py
